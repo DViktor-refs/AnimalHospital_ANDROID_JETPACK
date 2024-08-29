@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Veterinary</string>
+    <string name="introduction">és tapasztalja meg, hogy milyen az igazi gondoskodás!
+        ahol kedvenceik egészsége és jóléte a legfontosabb számunkra!
+        Családias környezetben, magasan képzett és tapasztalt szakemberekkel várjuk,
+        akik elkötelezettek az állatok szeretete és gondoskodása iránt.
+        Szolgáltatásaink között megtalálhatóak az általános állatorvosi vizsgálatok,
+        védőoltások, sebészeti beavatkozások, valamint speciális diagnosztikai eljárások is.
+        Legyen szó megelőzésről, gyógyításról vagy tanácsadásról, mi mindent megteszünk azért,
+        hogy kedvenceik a lehető legjobb ellátásban részesüljenek. Látogasson el hozzánk.
+    </string>
+    <string name="aboutustitle">Üdvözlöm a Tóth Állatkorházban,</string>
+    <string name="emailaddress">tothallatkorhaz@gmail.com</string>
+    <string name="phonenumber">+3630/123 45 67</string>
+    <string name="address">3300 Eger, Kő utca 11.</string>
+
+</resources>
