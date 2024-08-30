@@ -7,13 +7,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 
-import androidx.compose.foundation.layout.Spacer
+
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -87,8 +88,6 @@ fun MainScreen(navController: NavHostController) {
         )
     }
 
-
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -99,101 +98,131 @@ fun MainScreen(navController: NavHostController) {
                         Color(0XFFEBE4E4)
                     )
                 )
-            ),
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.animals),
-            contentDescription = "MainMenuBottomBackgroundPets",
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-        )
-
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
-
-            Spacer(Modifier.size(125.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(text = "Tóth", style = TitleTextStyle)
-                Text(text = "Vet", style = TitleTextStyle2)
-            }
-            
-            Spacer(modifier = Modifier.size(2.dp))
-            
-            Text(
-                text = "ÁllatKórház",
-                style = SubTitle,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
             )
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
 
-            Spacer(modifier = Modifier.size(75.dp))
+            Row(modifier = Modifier.fillMaxWidth().weight(1.4f)) {
+                Column(modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center,
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                // Első kártya
-                CustomCard(
-                    R.drawable.aboutus,
-                    "aboutUs",
-                    "Rendelőnkről",
-                    modifier = Modifier,
-                    doSomething()
-                )
 
-                //Második kártya
-                CustomCard(
-                    R.drawable.appointment,
-                    "appointment",
-                    "Időpont foglalás",
-                    modifier = Modifier,
-                    doSomething()
-                )
+                        ) {
+                        Text(text = "Tóth", style = TitleTextStyle)
+                        Text(text = "Vet", style = TitleTextStyle2)
+                    }
 
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center
+
+                        ) {
+                        Text(
+                            text = "ÁllatKórház",
+                            style = SubTitle,
+                            textAlign = TextAlign.Center,
+                        )
+                    }
+                }
             }
 
+            Row(modifier = Modifier.fillMaxWidth().weight(4f)) {
+                Column(modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        // Első kártya
+                        CustomCard(
+                            R.drawable.aboutus,
+                            "aboutUs",
+                            "Rendelőnkről",
+                            modifier = Modifier,
+                            {},
+                            navController
+                        )
 
+                        //Második kártya
+                        CustomCard(
+                            R.drawable.appointment,
+                            "appointment",
+                            "Időpont foglalás",
+                            modifier = Modifier,
+                            {},
+                            navController
+                        )
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
+                    }
 
-                //harmadik kártya
-                CustomCard(
-                    R.drawable.history,
-                    "history",
-                    "Előzmények",
-                    modifier = Modifier,
-                    doSomething()
-                )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
 
-                CustomCard(
-                    R.drawable.pharmacy,
-                    "pharmacy",
-                    "Állatgyógyszertár",
-                    modifier = Modifier,
-                    doSomething()
-                )
+                        //harmadik kártya
+                        CustomCard(
+                            R.drawable.history,
+                            "history",
+                            "Előzmények",
+                            modifier = Modifier,
+                            {},
+                            navController
+                        )
 
+                        CustomCard(
+                            R.drawable.pharmacy,
+                            "pharmacy",
+                            "Állatgyógyszertár",
+                            modifier = Modifier,
+                            {},
+                            navController
+                        )
+                    }
+                }
+            }
 
+            Row(modifier = Modifier.fillMaxWidth().weight(1.5f)) {
+                Column(modifier = Modifier.fillMaxSize()) {
+                    Row(modifier = Modifier
+                        .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center,
+
+                        ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.animals),
+                            contentDescription = "MainMenuBottomBackgroundPets",
+                            contentScale = ContentScale.Fit,
+                        )
+                    }
+                }
 
             }
         }
+
+        }
+
+    }
+
+@Composable
+fun jumpToAboutUsScreen(navController: NavHostController): () -> Unit {
+
+    return {
+        navController.navigate("aboutus")
     }
 }
+
 
 fun doSomething(): () -> Unit {
 

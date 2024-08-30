@@ -29,6 +29,7 @@ import androidx.compose.ui.layout.HorizontalAlignmentLine
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.veterinary.R
 
 @Composable
@@ -38,13 +39,14 @@ fun CustomCard(
     contentDescription: String, 
     text: String,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    navController: NavHostController
 ) {
 
     Card(
         modifier
             .size(150.dp)
-            .clickable { onClick() },
+            .clickable {  navController.navigate("aboutus") },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(10.dp),
         border = BorderStroke(1.dp, Color(0xFFA4E9D2))

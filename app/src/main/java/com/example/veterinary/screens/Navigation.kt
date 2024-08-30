@@ -8,9 +8,11 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.delay
 
 sealed class Screen(val route: String) {
-    object Splash : Screen("splash")
+    object Splash : Screen("splashscreen")
     object Main : Screen("main")
     object Login : Screen("login")
+    object AboutUs : Screen("aboutus")
+
 }
 
 @Composable
@@ -33,5 +35,9 @@ fun NavigationComponent() {
         composable(Screen.Login.route) {
             LoginScreen(navController)
         }
+        composable(Screen.AboutUs.route) {
+            AboutUs(navController)
+        }
+
     }
 }
